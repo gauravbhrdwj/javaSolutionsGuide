@@ -1,0 +1,2 @@
+# javaSolutionsGuide
+Java Projects
