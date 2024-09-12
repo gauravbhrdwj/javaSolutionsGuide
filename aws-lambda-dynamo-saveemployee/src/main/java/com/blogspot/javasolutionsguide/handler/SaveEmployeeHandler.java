@@ -19,11 +19,13 @@ public class SaveEmployeeHandler implements RequestHandler<Employee, Response>{
 	private String DYNAMO_DB_TABLE_NAME = "Employee";
 	private Regions REGION = Regions.US_EAST_1;
 
+	public SaveEmployeeHandler() {
+		this.initDynamoDbClient();
+	}
+
 
 	@Override
 	public Response handleRequest(Employee personRequest, Context context) {
-		
-	    this.initDynamoDbClient();
 	    persistData(personRequest);
 	    Response personResponse = new Response();
 	    personResponse.setMessage("Message Saved Successfully");

@@ -1,17 +1,14 @@
 package com.blogspot.javasolutionsguide.response;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @author javaSolutionsGuide
  *
  */
+@Getter
+@Setter
 public class Response {
 	private String message;
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
 }
