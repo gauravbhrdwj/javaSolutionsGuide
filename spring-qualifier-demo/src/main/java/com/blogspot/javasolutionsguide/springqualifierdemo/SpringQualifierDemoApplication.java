@@ -1,5 +1,6 @@
-package com.blogspot.javasolutionsguide.springqualifierdemo.property;
+package com.blogspot.javasolutionsguide.springqualifierdemo;
 
+import com.blogspot.javasolutionsguide.springqualifierdemo.property.Employee;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
