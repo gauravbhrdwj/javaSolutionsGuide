@@ -9,12 +9,11 @@ import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 
 public class HelloWorldWithRequestStreamHandler implements RequestStreamHandler {
 
-	@Override
-	public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context) throws IOException {
-		int letter;
-        while((letter = inputStream.read()) != -1)
-        {
+    @Override
+    public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context) throws IOException {
+        int letter;
+        while ((letter = inputStream.read()) != -1) {
             outputStream.write(Character.toUpperCase(letter));
         }
-	}
+    }
 }

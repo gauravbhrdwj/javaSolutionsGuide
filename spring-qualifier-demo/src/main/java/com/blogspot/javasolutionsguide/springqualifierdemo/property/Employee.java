@@ -10,10 +10,8 @@ public class Employee {
 	@Qualifier("permanentAddress")
 	@Autowired
 	private Address address;
-	
-	
+
 	public void displayAddress() {
 		System.out.println("Employee address is: " + address.getAddress());
 	}
-
 }

@@ -14,37 +14,29 @@ import com.blogspot.javasolutionsguide.request.Employee;
 import com.blogspot.javasolutionsguide.response.Response;
 
 public class SaveEmployeeHandler implements RequestHandler<Employee, Response>{
-	
-	private DynamoDB dynamoDb;
-	private String DYNAMO_DB_TABLE_NAME = "Employee";
-	private Regions REGION = Regions.US_EAST_1;
+	private final DynamoDB dynamoDb;
+	private final String DYNAMO_DB_TABLE_NAME = "Employee";
+	private final Regions REGION = Regions.US_EAST_1;
 
+    public SaveEmployeeHandler() {
+        AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+        client.setRegion(Region.getRegion(REGION));
+        this.dynamoDb = new DynamoDB(client);
+    }
 
-	@Override
+    @Override
 	public Response handleRequest(Employee personRequest, Context context) {
-		
-	    this.initDynamoDbClient();
-	    persistData(personRequest);
+		persistData(personRequest);
 	    Response personResponse = new Response();
 	    personResponse.setMessage("Message Saved Successfully");
 		return personResponse;
 	}
-	
-	private void initDynamoDbClient() {
-		AmazonDynamoDBClient client = new AmazonDynamoDBClient();
-		client.setRegion(Region.getRegion(REGION));
-		this.dynamoDb = new DynamoDB(client);
-	}
-	
+
 	private PutItemOutcome persistData(Employee employee) {
 		Table table = dynamoDb.getTable(DYNAMO_DB_TABLE_NAME);
-		PutItemOutcome outcome = table.putItem(new PutItemSpec().withItem(
+		return table.putItem(new PutItemSpec().withItem(
 				new Item().withNumber("empId", employee.getEmpId())
 				           .withString("firstName", employee.getFirstName())
 				           .withString("lastName", employee.getLastName())));
-		return outcome;
-	}
-
-	
-
+    }
 }

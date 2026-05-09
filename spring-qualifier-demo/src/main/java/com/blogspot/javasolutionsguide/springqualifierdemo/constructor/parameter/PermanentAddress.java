@@ -4,10 +4,9 @@ import org.springframework.stereotype.Component;
 
 @Component("permanentAddress")
 public class PermanentAddress implements Address {
-	
-	@Override
-	public String getAddress() {
-		return "345,ABC, Permanent State";
-	}
 
+    @Override
+    public String getAddress() {
+        return "345,ABC, Permanent State";
+    }
 }
