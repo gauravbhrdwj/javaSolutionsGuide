@@ -10,6 +10,7 @@
         <module>arraytolist</module>
         <module>aws-lambda-dynamo-saveemployee</module>
         <module>aws-lambda-helloworld</module>
+        <module>optimistic-and-pessimistic-locking</module>
         <module>spring-qualifier-demo</module>
         <module>spring-rest-and-data-jpa-with-springboot</module>
         <module>string-to-int</module>
